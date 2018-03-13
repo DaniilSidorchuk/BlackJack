@@ -11,6 +11,9 @@ public class Player {
     public Player(String name, Mettle mettle) {
         this.name = name;
         this.mettle = mettle;
+    }
+
+    public void getStartingCards(){
         this.cardsPocket = new CardsPocket();
     }
 

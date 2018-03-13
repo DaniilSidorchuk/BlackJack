@@ -13,10 +13,12 @@ public class Game {
 
     public Game(int games) {
         this.games = games;
-        startGame();
     }
 
     private void startGame(){
+        player1.getStartingCards();
+        player2.getStartingCards();
+        player3.getStartingCards();
         for (int i = 0; i < 3; i++) {
             Card card = deck.randomCard();
             players[i].getCardsPocket().addCard(card);
@@ -32,6 +34,7 @@ public class Game {
     }
 
     private void round(){
+        startGame();
         int [] results = new int[3];
         for (int i = 0; i < players.length; i++) {
             while (!players[i].stopGame()){
