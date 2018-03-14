@@ -22,6 +22,7 @@ public class CardsPocket {
 
     public double checkChance(){
         int freePoints = 21 - amountOfPoints;
+        if (freePoints<=1){return 0;}
         int acceptableCards = 0;
         Rang [] rangs = new Rang[]{Rang.ACE, Rang.KING,Rang.QEEN,Rang.JACK,Rang.TEN,Rang.NINE,Rang.EIGHT,Rang.SEVEN,Rang.SIX,Rang.FIVE,Rang.FOUR,Rang.THREE, Rang.TWO};
         for (int i = 0; i <rangs.length ; i++) {

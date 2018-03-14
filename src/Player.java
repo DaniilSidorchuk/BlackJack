@@ -18,7 +18,7 @@ public class Player {
     }
 
     protected boolean stopGame(){
-    if (cardsPocket.checkChance()<mettle.chance()){
+    if (cardsPocket.checkChance()>mettle.chance()){
         return false;
     }
     return true;
