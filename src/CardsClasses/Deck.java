@@ -1,5 +1,7 @@
 package CardsClasses;
 
+import Arrays.ArrayOfRangs;
+import Arrays.ArraysOfSuits;
 import Enums.Rang;
 import Enums.Suit;
 
@@ -10,27 +12,32 @@ public class Deck {
     ArrayList <Card> deck = new ArrayList<>(52);
 
 
+
     public Deck() {
-
-        for (int i = 0; i < 52; i++) {
-            Card card = randomCard();
-            if (!deck.contains(card)){
-                deck.add(card);
-            } else {i--;}
+        ArrayList <Rang> rang = createArrayListOfRangs();
+        for (int i = 0; i < 13; i++) {
+            int index = (int) Math.random()*rang.size();
+            for (int j = 0; j < ArraysOfSuits.suit.length; j++) {
+                deck.add(new Card(ArraysOfSuits.suit[j],rang.get(index)));
+            }
+            rang.remove(index);
         }
-
     }
 
+    private ArrayList createArrayListOfRangs(){
+        ArrayList rangs = new ArrayList(ArrayOfRangs.rangs.length);
+        for (int j = 0; j < ArrayOfRangs.rangs.length; j++) {
+            rangs.add(ArrayOfRangs.rangs[j]);
+        }
+        return rangs;
+    }
 
     public Card randomCard(){
-
-        Suit [] suit = new Suit[]{Suit.Clubs,Suit.Diamonds,Suit.Hearts,Suit.Spades};
-        Rang [] rangs = new Rang[]{Rang.ACE, Rang.KING,Rang.QEEN,Rang.JACK,Rang.TEN,Rang.NINE,Rang.EIGHT,Rang.SEVEN,Rang.SIX,Rang.FIVE,Rang.FOUR,Rang.THREE,Rang.TWO};
 
         int suitRandomIndex = (int) (Math.random() * 3);
         int rangsRandomIndex = (int) (Math.random() * 12);
 
-        return new Card(suit[suitRandomIndex],rangs[rangsRandomIndex]);
+        return new Card(ArraysOfSuits.suit[suitRandomIndex], ArrayOfRangs.rangs[rangsRandomIndex]);
 
     }
 

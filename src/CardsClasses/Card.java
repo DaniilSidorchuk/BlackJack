@@ -5,21 +5,21 @@ import Enums.Suit;
 
 public class Card {
 
-    private String suit;
-    private String rang;
+    private Suit suit;
+    private Rang rang;
     private int points;
 
     public Card(Suit suit, Rang rang) {
-        this.suit = suit.toString();
-        this.rang = rang.toString();
+        this.suit = suit;
+        this.rang = rang;
         this.points = rang.value();
     }
 
-    public String getSuit() {
+    public Suit getSuit() {
         return suit;
     }
 
-    public String getRang() {
+    public Rang getRang() {
         return rang;
     }
 
@@ -38,6 +38,11 @@ public class Card {
         }
         return false;
     }
+
+    public boolean sameRangs (Card card){
+        return this.getRang().equals(card.getRang())? true:false;
+    }
+
 }
 
 
