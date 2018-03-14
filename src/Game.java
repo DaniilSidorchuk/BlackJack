@@ -70,9 +70,9 @@ public class Game {
     }
 
     private void printStatistic() {
-        System.out.println(player1.getName() + " " + "has " + player1.getWins() + " " + "wins");
-        System.out.println(player2.getName() + " " + "has " + player2.getWins() + " " + "wins");
-        System.out.println(player3.getName() + " " + "has " + player3.getWins() + " " + "wins");
+        System.out.println(player1.getName() + " " + player1.getMettle() + " " + "has " + player1.getWins() + " " + "wins");
+        System.out.println(player2.getName() + " " + player2.getMettle() + " " + "has " + player2.getWins() + " " + "wins");
+        System.out.println(player3.getName() + " " + player3.getMettle() + " " + "has " + player3.getWins() + " " + "wins");
     }
 
 }

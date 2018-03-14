@@ -44,4 +44,7 @@ public class Player {
         return cardsPocket;
     }
 
+    public Mettle getMettle() {
+        return mettle;
+    }
 }

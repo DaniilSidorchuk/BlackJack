@@ -16,7 +16,7 @@ public class Deck {
             Card card = randomCard();
             if (!deck.contains(card)){
                 deck.add(card);
-            } else {continue;}
+            } else {i--;}
         }
 
     }
