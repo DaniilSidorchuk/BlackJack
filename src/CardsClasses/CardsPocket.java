@@ -1,5 +1,6 @@
 package CardsClasses;
 
+import Arrays.ArrayOfRangs;
 import Enums.Rang;
 import Enums.Suit;
 
@@ -24,14 +25,13 @@ public class CardsPocket {
         int freePoints = 21 - amountOfPoints;
         if (freePoints<=1){return 0;}
         int acceptableCards = 0;
-        Rang [] rangs = new Rang[]{Rang.ACE, Rang.KING,Rang.QEEN,Rang.JACK,Rang.TEN,Rang.NINE,Rang.EIGHT,Rang.SEVEN,Rang.SIX,Rang.FIVE,Rang.FOUR,Rang.THREE, Rang.TWO};
-        for (int i = 0; i <rangs.length ; i++) {
-            if (freePoints<=rangs[i].value()){
+        for (int i = 0; i < ArrayOfRangs.rangs.length ; i++) {
+            if (freePoints<=ArrayOfRangs.rangs[i].value()){
                 int card = 4;
-                int sameCards = Collections.frequency(pocket,new Card(Suit.Hearts,rangs[i]));
-                sameCards+=Collections.frequency(pocket,new Card(Suit.Clubs,rangs[i]));
-                sameCards+=Collections.frequency(pocket,new Card(Suit.Spades,rangs[i]));
-                sameCards+=Collections.frequency(pocket,new Card(Suit.Diamonds,rangs[i]));
+                int sameCards = Collections.frequency(pocket,new Card(Suit.Hearts,ArrayOfRangs.rangs[i]));
+                sameCards+=Collections.frequency(pocket,new Card(Suit.Clubs,ArrayOfRangs.rangs[i]));
+                sameCards+=Collections.frequency(pocket,new Card(Suit.Spades,ArrayOfRangs.rangs[i]));
+                sameCards+=Collections.frequency(pocket,new Card(Suit.Diamonds,ArrayOfRangs.rangs[i]));
                 card-=sameCards;
                 acceptableCards+=card;
             }
